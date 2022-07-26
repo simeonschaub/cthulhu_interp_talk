@@ -1,0 +1,12 @@
+---
+title: "A Guided Tour through Julia's Frontend"
+author: "Simeon Schaub"
+format:
+    revealjs:
+        navigation-mode: vertical
+        transition: slide
+        include-in-header: 
+            - header.html
+jupyter: julia-1.7
+---
+

@@ -1,0 +1,7 @@
+[deps]
+ANSIColoredPrinters = "a4c015fc-c6ff-483c-b24f-f7ea428134e9"
+AbstractTrees = "1520ce14-60c1-5f80-bbc7-55ef81b5835c"
+Cthulhu = "f68482b8-f384-11e8-15f7-abe071a5a75f"
+HypertextLiteral = "ac1192a8-f4b3-4bfe-ba22-af5b92cd3ab2"
+Tokenize = "0796e94c-ce3b-5d07-9a54-7f471281c624"
+Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"
