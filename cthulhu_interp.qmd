@@ -1,5 +1,5 @@
 ---
-title: "A Guided Tour through Julia's Frontend"
+title: "Making Abstract Interpretation Less Abstract in Cthulhu.jl"
 author: "Simeon Schaub"
 format:
     revealjs:
@@ -10,3 +10,57 @@ format:
 jupyter: julia-1.7
 ---
 
+# Cthulhu.jl {.smaller}
+
+:::: {.columns}
+
+::: {.column width="25%"}
+![](https://user-images.githubusercontent.com/145258/107991394-89135f80-6fa4-11eb-81e4-cef74cc9b38d.gif)
+:::
+
+::: {.column width="75%"}
+
+> Cthulhu can help you debug type inference issues by recursively showing the code_typed output until you find the exact point where inference gave up, messed up, or did something unexpected. Using the Cthulhu interface you can debug type inference problems faster.
+
+- Insight into how Julia's compiler sees your code
+- Results of *abstract interpretation* (types, constant information, etc.) alongside lowered code
+:::
+
+::::
+
+# What does Cthulhu do?
+
+Let's take a look at this fairly simple function:
+
+::: {data-id="box1"}
+```julia
+function my_sqrt(x)
+    sqrt = x
+    while abs(x - sqrt^2) > .001
+        sqrt = (sqrt + x/sqrt) / 2
+    end
+    return sqrt
+end
+```
+:::
+
+## {background-image="cthulhu_example.svg" background-size="contain"}
+
+
+# <span style="font-size: .6em">Debugger vs Cthulhu</span> {.smaller}
+
+| Debugger (JuliaInterpreter) | Cthulhu |
+| --- | --- |
+| - most used for finding logic bugs | - most used for inference issues |
+| - doesn't use any type information, completely dynamic | - extracts static type information from Julia's compiler |
+| - executes all your code | - only allowed to evaluate "pure" code |
+| - no real ability to take a step back <sub><sup>(code executed might already have caused irreversible side effects)</sup></sub> | - able to poke around any parts of the program
+| - straightforward, but only see one step at a time | - often intimidating with nothing else to go on, e.g. Zygote code can get messy very quickly |
+
+<br/>
+
+::: {.fragment}
+Julia users are greedy --- **Can we get the best of both worlds?**
+:::
+
+# Demo
