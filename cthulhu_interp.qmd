@@ -15,7 +15,7 @@ jupyter: julia-1.7
 :::: {.columns}
 
 ::: {.column width="25%"}
-![](https://user-images.githubusercontent.com/145258/107991394-89135f80-6fa4-11eb-81e4-cef74cc9b38d.gif)
+![credit: @cormullion and @vchuravy](https://user-images.githubusercontent.com/145258/107991394-89135f80-6fa4-11eb-81e4-cef74cc9b38d.gif)
 :::
 
 ::: {.column width="75%"}
@@ -64,3 +64,12 @@ Julia users are greedy --- **Can we get the best of both worlds?**
 :::
 
 # Demo
+
+# Thanks for listening!
+
+Check out [https://github.com/JuliaDebug/Cthulhu.jl/pull/214]()
+or simply do:
+
+```
+pkg> add Cthulhu#sds/wip_juliainterpreter
+```
